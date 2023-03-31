@@ -156,3 +156,21 @@ Restart and check the status of sshd service
    Active: active (running) since Thu 2023-03-23 15:00:35 UTC; 16min ago
 ```
 
+## 9. Replace file
+Replace all the occurences of "Sample" with "Software" in the file content.
+
+Sol: 
+```sh
+#First check how many occurences are there
+[root@stbkp01 /]# cat nautilus.xml | grep "Sample" | wc -l
+66
+[root@stbkp01 /]# cat nautilus.xml | grep "Software" | wc -l
+20
+
+#replace command
+[root@stbkp01 /]# sed -i 's/Sample/Software/g' nautilus.xml
+
+#check conentes
+[root@stbkp01 /]# cat nautilus.xml | grep "Software" | wc -l
+86
+```
