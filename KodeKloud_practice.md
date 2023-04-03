@@ -174,3 +174,35 @@ Sol:
 [root@stbkp01 /]# cat nautilus.xml | grep "Software" | wc -l
 86
 ```
+
+##10. Banner message
+copy existing banner message to the server.
+
+Sol:
+Find out if scp is working on the target server, otherwise install it with `yum install openssl-clients`
+
+copy the file using scp to temp location
+```sh
+thor@jump_host ~$ scp -r /home/thor/nautilus_banner peter@stdb01:/tmp/
+peter@stdb01's password: 
+nautilus_banner                                                                                        100% 2530     6.5MB/s   00:00    
+
+```
+
+Login to the target server and move the file from temp to /etc/motd/ directory.
+```sh
+thor@jump_host ~$ ssh peter@stdb01
+peter@stdb01's password: 
+Last login: Mon Apr  3 10:27:15 2023 from jump_host.linux-banner-v2_db_net
+[peter@stdb01 ~]$ sudo -i
+[sudo] password for peter: 
+           
+[root@stdb01 ~]# mv /tmp/nautilus_banner /etc/motd 
+mv: overwrite ‘/etc/motd’? y
+```
+
+After copy, logout from the server and login again to see the banner
+```sh
+ssh peter@stdb01
+#### Shows the banner message #####
+```
