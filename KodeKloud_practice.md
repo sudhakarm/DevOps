@@ -175,7 +175,7 @@ Sol:
 86
 ```
 
-##10. Banner message
+## 10. Banner message
 copy existing banner message to the server.
 
 Sol:
@@ -205,4 +205,14 @@ After copy, logout from the server and login again to see the banner
 ```sh
 ssh peter@stdb01
 #### Shows the banner message #####
+```
+## 11. Linux User Files
+there is a directory `/home/usersdata/` contains files and sub dir. Task is to copy files that are owned my user `ravi` to separate path `/ecommerce/` without changing directory structure.
+
+sol:
+
+```sh
+ #This command finds the files owned by user ravi and copy them to ecomerce dir, with parent dir path.
+ find /home/usersdata/ -type f -user ravi -exec cp --parents {} /ecommerce \;
+
 ```
