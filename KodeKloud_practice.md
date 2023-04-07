@@ -216,3 +216,67 @@ sol:
  find /home/usersdata/ -type f -user ravi -exec cp --parents {} /ecommerce \;
 
 ```
+## 12. Linux SSH Authentication
+Set up a password-less authentication from user thor on jump host to all app servers through their respective sudo users.
+
+Sol: 
+First generate an rsa public key from jump server as thor. using `ssh-keygen`. 
+Give passphrase as empty for now.
+```sh
+thor@jump_host ~$ ssh-keygen -t rsa
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/thor/.ssh/id_rsa):
+Created directory '/home/thor/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/thor/.ssh/id_rsa.
+Your public key has been saved in /home/thor/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:C25X9Nv4Vgiw2U7cbxFQxLXsFgTPgtH3G/Hf+DspASD thor@jump_host.stratos.xfusioncorp.com
+The key's randomart image is:
++---[RSA 2048]----+
+|          .o+*+*+  |
+|        .  +=O . |
+|      .  ++ o.X  |
+|       *.oo+E +o=.|
+|      o S..o o+oo|
+|       . +.o+.=. |
+|        o oo.+  o|
+|           .o. o.|
+|           .. ...|
++----[SHA256]-----+
+
+thor@jump_host ~$
+```
+
+Now copy this pub key to the application server using `ssh-copy-id`, in the process you need to give password of user in that server. In this case you have to give password of the user `tony` on app server `stapp01`
+```sh
+
+thor@jump_host ~$ ssh-copy-id  tony@stapp01
+
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/thor/.ssh/id_rsa.pub"
+The authenticity of host 'stapp01 (172.16.238.10)' can't be established.
+ECDSA key fingerprint is SHA256:xOVel/2X5Nx5p4t62XYbazZrYXBcpWM/z32+OL2GaMsX.
+ECDSA key fingerprint is MD5:a4:1f:34:cc:9e:2c:da:c0:f3:c9:cc:e3:c2:3c:12:51.
+
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+
+tony@stapp01's password:
+
+ Number of key(s) added: 1
+ Now try logging into the machine, with:   "ssh 'tony@stapp01'"
+and check to make sure that only the key(s) you wanted were added.
+ thor@jump_host /$
+```
+
+Check after copying rsa. Check by logging in to server. It will not ask password.
+
+```sh
+thor@jump_host ~$ ssh tony@stapp01
+tony@stapp01 ~$
+```
+successfully logged in to system with user tony.
+
