@@ -280,3 +280,20 @@ tony@stapp01 ~$
 ```
 successfully logged in to system with user tony.
 
+## 13. Linux string substitute (sed)
+There is some text in a file `BSD.txt`. Two parts of the task are. 
+1. delete all lines from the text file BSD.txt where the word `code` appears, and write the output to file `BSD_DELETE.txt`
+2. replace all instances of `or` to `for` and save to separate file `BSD_REPLACE.txt`. Beware that you should not replace `more` to `mfore`.
+
+Sol:
+Tip -- If we include -i to sed command, it will do operation on the same file. else it would redirect output, which we capture to an output file.
+First part, to delete lines we use /d in sed command. 
+```sh
+[root@stapp02 home]# sed '/code/d' BSD.txt > BSD_DELETE.txt
+```
+
+Second part, to replace all occurrences of 'or'.
+We have to use 's/' which is substitute and '\b<text to search>\b' to mind leading and trailing spaces to 'or'.
+```sh
+ [root@stapp02 home]# sed 's/\bor\b/for/g' BSD.txt > BSD_REPLACE.txt
+```
