@@ -297,3 +297,27 @@ We have to use 's/' which is substitute and '\b<text to search>\b' to mind leadi
 ```sh
  [root@stapp02 home]# sed 's/\bor\b/for/g' BSD.txt > BSD_REPLACE.txt
 ```
+
+##14. Maria DB connection debug
+The production support team identified that the application is unable to connect to the database.
+Sol:
+first check the service status. If it is failed, then check journal
+`journalctl -xe|grep mariadb`
+
+check if permissions to the dir `mysql` are with mysql user
+`ll /var/lib/`
+
+If all are good, try to restart the service and check status.
+`systemctl start mariadb.service && systemctl status nariadb.service`
+
+still issue persists, remove and reinstall after yum update.
+```sh
+yum remove mariadb mariadb-server
+yum update
+yum install -y  mariadb mariadb-server
+systemctl status mariadb
+systemctl enable mariadb
+systemctl start mariadb && systemctl status mariadb
+```
+
+This will start the service.
