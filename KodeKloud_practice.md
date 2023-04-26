@@ -321,3 +321,45 @@ systemctl start mariadb && systemctl status mariadb
 ```
 
 This will start the service.
+
+##14 Linux Run Levels - GUI by default
+     On all App servers in Stratos Datacenter change the default runlevel so that they can boot in GUI (graphical user interface) by default.
+Sol: 
+     login to app server and switch to root user.
+check what is the default run level
+     ```sh
+     [root@stapp01 ~]# systemctl get-default
+     multi-user.target
+     ```
+change the run level to graphical target.
+      ```sh
+     [root@stapp01 ~]# systemctl set-default graphical.target
+     Removed symlink /etc/systemd/system/default.target.
+     Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/graphical.target.
+      ```
+check the service of graphical target if that is running. If not try to start manually
+     ```sh
+     [root@stapp01 ~]# systemctl status graphical.traget
+
+     ● graphical.target - Graphical Interface
+
+        Loaded: loaded (/usr/lib/systemd/system/graphical.target; enabled; vendor preset: disabled)
+
+        Active: inactive (dead)
+
+     Docs: man:systemd.special(7)
+
+     [root@stapp01 ~]#
+
+     [root@stapp01 ~]# systemctl start graphical.target
+
+     [root@stapp01 ~]# systemctl status graphical.target
+     ● graphical.target - Graphical Interface
+
+        Loaded: loaded (/usr/lib/systemd/system/graphical.target; enabled; vendor preset: disabled)
+
+        Active: active 
+     
+     [root@stapp01 ~]# systemctl get-default
+     graphical.target
+     ```
