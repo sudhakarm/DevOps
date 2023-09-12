@@ -27,3 +27,19 @@
 | 24 |                                                | Application Security              |                                           |                                           |
 
 ## Kubernetes Tasks
+| Task# | Level1                                        | Level2                                                     | Level3                                          | Level4                                |
+|-------|-----------------------------------------------|------------------------------------------------------------|-------------------------------------------------|---------------------------------------|
+| 1     | Create Pods in Kubernetes Cluster             | Kubernetes Shared Volumes                                  | Deploy Apache Web Server on Kubernetes CLuster  | Deploy Redis Deployment on Kubernetes |
+| 2     | Create Deployments in Kubernetes Cluster      | Kubernetes Sidecar Containers                              | Deploy Lamp Stack on Kubernetes Cluster         | Deploy MySQL on Kubernetes            |
+| 3     | Create Namespaces in Kubernetes Cluster       | Deploy Nginx Web Server on Kubernetes Cluster              | Init Containers in Kubernetes                   | Kubernetes Nginx and PhpFPM Setup     |
+| 4     | Set Limits for Resources in Kubernetes        | Print Environment Variables                                | Persistent Volumes in Kubernetes                | Deploy Drupal App on Kubernetes       |
+| 5     | Rolling Updates in Kubernetes                 | Rolling Updates And Rolling Back Deployments in Kubernetes | Manage Secrets in Kubernetes                    | Deploy Guest Book App on Kubernetes   |
+| 6     | Rollback a Deployment in Kubernetes           | Deploy Jenkins on Kubernetes                               | Environment Variables in Kubernetes             |                                       |
+| 7     | Create Replicaset in Kubernetes Cluster       | Deploy Grafana on Kubernetes Cluster                       | Kubernetes LEMP Setup                           |                                       |
+| 8     | Create Cronjobs in Kubernetes                 | Deploy Tomcat App on Kubernetes                            | Kubernetes Troubleshooting                      |                                       |
+| 9     | Countdown job in Kubernetes                   | Deploy Node App on Kubernetes                              | Deploy Iron Gallery App on   Kubernetes         |                                       |
+| 10    | Kubernetes Time Check Pod                     | Troubleshoot Deployment issues in Kubernetes               | Fix Python App Deployed on   Kubernetes Cluster |                                       |
+| 11    | Troubleshoot Issue With Pods                  | Fix issue with LAMP Environment in   Kubernetes            |                                                 |                                       |
+| 12    | Update an Existing Deployment in   Kubernetes |                                                            |                                                 |                                       |
+| 13    | ReplicationController in Kubernetes           |                                                            |                                                 |                                       |
+| 14    | Fix Issue with VolumeMounts in   Kubernetes   |                                                            |                                                 |                                       |
