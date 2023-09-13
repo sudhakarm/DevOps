@@ -497,10 +497,33 @@ Restart the squid service and check status
 
 
 ## 2.24	Application Security
+We have a backup management application UI hosted on Nautilus's backup server in Stratos DC. That backup management application code is deployed under Apache on the backup server itself, and Nginx is running as a reverse proxy on the same server. Apache and Nginx ports are 8085 and 8091, respectively. We have iptables firewall installed on this server. Make the appropriate changes to fulfill the requirements mentioned below:
+
+We want to open all incoming connections to Nginx's port (8091) and block all incoming connections to Apache's port (8085). Also make sure rules are permanent.
 
 <details>
 <summary>Sol:</summary>
+Check if iptables service is running
 
+```sh
+systemctl status iptables
+systemctl start iptables
+```
+Now create deny and allow rules in IP tables and save permanently
+```sh
+[root@stbkp01 ~]# iptables -A INPUT -p tcp --dport 8085 -m conntrack --ctstate NEW -j REJECT
+[root@stbkp01 ~]# iptables -A INPUT -p tcp --dport 8091 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+[root@stbkp01 ~]# service iptables save
+iptables: Saving firewall rules to /etc/sysconfig/iptables:[  OK  ]
+```
+
+Check if rules saved as per config
+```sh
+[root@stbkp01 ~]# iptables-save | grep 80
+:INPUT ACCEPT [126:8808]
+-A INPUT -p tcp -m tcp --dport 8085 -m conntrack --ctstate NEW -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp -m tcp --dport 8091 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+```
 </details>
 
 
