@@ -100,6 +100,7 @@ sam:x:1002:1002::/home/sam:/sbin/nologin
 </details>
 
 ## 1.4. Linux User Without Home
+
 The system admins team of xFusionCorp Industries has set up a new tool on all app servers, as they have a requirement to create a service user account that will be used by that tool. They are finished with all apps except for App Server 1 in Stratos Datacenter.
 
 Create a user named javed in App Server 1 without a home directory
@@ -141,96 +142,112 @@ drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 </details>
 
 ## 1.5	Linux User Expiry
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.6	Linux User Files
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.7	Disable Root Login
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.8	Linux Archives
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.9	Linux File Permissions
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.10	Linux Access Control List
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.11	Linux String Substitute
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.12	Linux Remote Copy
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.13	Cron schedule deny to users
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.14	Linux Run Levels
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.15	Linux TimeZones Setting
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.16	Linux NTP Setup
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.17	Linux Firewalld Rules
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.18	Linux Resource Limits
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.19	Selinux Installation
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 1.20	Linux User Expiry
+
 <details>
 <summary>Sol:</summary>
 
@@ -241,72 +258,84 @@ drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 # Linux Level 2
 
 ## 2.1	Create a Cron Job
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.2	Linux Banner
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.3	Linux Collaborative Directories
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.4	Linux String Substitute (sed)
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.5	Linux SSH Authentication
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.6	Linux Find Command
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.7	Linux Install a package
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.8	Linux Install Ansible
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.9	Linux Configure Local Yum repos
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.10	Linux Services
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.11	Linux Configure sudo
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.12	DNS Troubleshooting
+
 <details>
 <summary>Sol:</summary>
 
@@ -319,69 +348,159 @@ drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 </details>
 
 ## 2.14	Linux Postfix Mail Server
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.15	Linux Postfix Troubleshooting
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.16	Linux Install and
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.17	Linux Haproxy LBR Troubleshooting
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.18	MariaDB Troubleshooting
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.19	Linux Bash Scripts
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.20	Add Response Headers in Apache
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.21	Apache Troubleshooting
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.22	Linux GPG Encryption
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.23	Linux LogRotate
+The Nautilus DevOps team is ready to launch a new application, which they will deploy on app servers in Stratos Datacenter. They are expecting significant traffic/usage of `squid` on app servers after that. This will generate massive logs, creating huge log files. To utilise the storage efficiently, they need to compress the log files and need to rotate old logs. Check the requirements shared below:
+
+a. In all app servers install `squid` package.
+b. Using `logrotate` configure `squid` logs rotation to monthly and keep only 3 rotated logs.
+(If by default log rotation is set, then please update configuration as needed)
+
 <details>
 <summary>Sol:</summary>
 
 </details>
 
 ## 2.24	Application Security
+
 <details>
 <summary>Sol:</summary>
 
+Install squid package
+
+```sh
+[root@stapp01 ~]# yum install squid -y
+```
+
+Navigate to logrotate folder and check existing folder
+
+```sh
+[root@stapp01 ~]# ls -l /etc/logrotate.d/
+total 20
+-rw-r--r-- 1 root root 130 Feb  8  2023 btmp
+-rw-r--r-- 1 root root  88 Apr 12  2021 dnf
+-rw-r--r-- 1 root root 435 Dec 20  2022 squid
+-rw-r--r-- 1 root root  88 Aug  8  2022 subscription-manager
+-rw-r--r-- 1 root root 145 Feb 19  2018 wtmp
+```
+
+Check contents of squid log rotation
+
+```sh
+[root@stapp01 ~]# cat /etc/logrotate.d/squid
+/var/log/squid/*.log {
+    weekly
+    rotate 5
+    compress
+    notifempty
+    missingok
+    nocreate
+    sharedscripts
+    postrotate
+      # Asks squid to reopen its logs. (logfile_rotate 0 is set in squid.conf)
+      # errors redirected to make it silent if squid is not running
+      /usr/sbin/squid -k rotate 2>/dev/null
+      # Wait a little to allow Squid to catch up before the logs is compressed
+      sleep 1
+    endscript
+}
+```
+
+Edit and change the time to monthly and rotation to 3
+
+```sh
+[root@stapp01 ~]# vi /etc/logrotate.d/squid
+# After change
+[root@stapp01 ~]# cat /etc/logrotate.d/squid
+/var/log/squid/*.log {
+    monthly
+    rotate 3
+    compress
+    notifempty
+    missingok
+    nocreate
+    sharedscripts
+    postrotate
+      # Asks squid to reopen its logs. (logfile_rotate 0 is set in squid.conf)
+      # errors redirected to make it silent if squid is not running
+      /usr/sbin/squid -k rotate 2>/dev/null
+      # Wait a little to allow Squid to catch up before the logs is compressed
+      sleep 1
+    endscript
+}
+```
+
+Restart the squid service and check status
+
+```sh
+[root@stapp01 ~]# systemctl start squid
+[root@stapp01 ~]# systemctl status squid
+● squid.service - Squid caching proxy
+   Loaded: loaded (/usr/lib/systemd/system/squid.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-09-13 13:04:16 UTC; 11s ago
+     Docs: man:squid(8)
+```
 </details>
 
 
