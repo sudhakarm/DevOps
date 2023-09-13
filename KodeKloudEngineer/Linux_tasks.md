@@ -416,17 +416,9 @@ The Nautilus DevOps team is ready to launch a new application, which they will d
 a. In all app servers install `squid` package.
 b. Using `logrotate` configure `squid` logs rotation to monthly and keep only 3 rotated logs.
 (If by default log rotation is set, then please update configuration as needed)
-
 <details>
 <summary>Sol:</summary>
-
-</details>
-
-## 2.24	Application Security
-
-<details>
-<summary>Sol:</summary>
-
+    
 Install squid package
 
 ```sh
@@ -501,6 +493,14 @@ Restart the squid service and check status
    Active: active (running) since Wed 2023-09-13 13:04:16 UTC; 11s ago
      Docs: man:squid(8)
 ```
+</details>
+
+
+## 2.24	Application Security
+
+<details>
+<summary>Sol:</summary>
+
 </details>
 
 
