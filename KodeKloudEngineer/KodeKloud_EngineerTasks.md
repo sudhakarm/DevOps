@@ -1,10 +1,10 @@
 ## Linux Tasks
 | Task# | Linux Level1                                   | Linux Level2                      | Linux Level3                              | Linux Level4                              |
 |----|------------------------------------------------|-----------------------------------|-------------------------------------------|-------------------------------------------|
-| 1  | Create a user                                  | Create a Cron Job                 | Apache Redirects                          | Install and Configure Nginx as an LBR     |
-| 2  | Create a group                                 | Linux Banner                      | Install And Configure SFTP                | LEMP Troubleshooting                      |
+| 1  | [Create a user](https://github.com/sudhakarm/DevOps/edit/main/KodeKloudEngineer/Linux_tasks.md#11-create-a-user)                                  | Create a Cron Job                 | Apache Redirects                          | Install and Configure Nginx as an LBR     |
+| 2  | [Create a group](https://github.com/sudhakarm/DevOps/blob/main/KodeKloudEngineer/Linux_tasks.md#12-create-a-group)                                 | Linux Banner                      | Install And Configure SFTP                | LEMP Troubleshooting                      |
 | 3  | [Create a Linux User with non-interactive shell](https://github.com/sudhakarm/DevOps/blob/main/Linux_tasks.md#13-create-a-linux-user-with-non-interactive-shell) | Linux Collaborative Directories   | Install and Configure Tomcat Server       | Install and Configure PostgreSQL          |
-| 4  | Linux User Without Home                        | Linux String Substitute (sed)     | Linux Network Services                    | Bash scripts if/else statements           |
+| 4  | [Linux User Without Home](https://github.com/sudhakarm/DevOps/blob/main/KodeKloudEngineer/Linux_tasks.md#14-linux-user-without-home)                        | Linux String Substitute (sed)     | Linux Network Services                    | Bash scripts if/else statements           |
 | 5  | Linux User Expiry                              | Linux SSH Authentication          | IPtables Installation And Configuration   | Configure LAMP server                     |
 | 6  | Linux User Files                               | Linux Find Command                | Linux Nginx as Reverse Proxy              | Install and Configure DB Server           |
 | 7  | Disable Root Login                             | Linux Install a package           | Configure protected directories in Apache | Install and Configure Web Application     |
