@@ -128,3 +128,69 @@ drwx------ 1 ansible ansible 4096 Oct 15  2019 ansible
 drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 [root@stapp01 ~]#
 ```
+
+## 1.5	Linux User Expiry
+## 1.6	Linux User Files
+## 1.7	Disable Root Login
+## 1.8	Linux Archives
+## 1.9	Linux File Permissions
+## 1.10	Linux Access Control List
+## 1.11	Linux String Substitute
+## 1.12	Linux Remote Copy
+## 1.13	Cron schedule deny to users
+## 1.14	Linux Run Levels
+## 1.15	Linux TimeZones Setting
+## 1.16	Linux NTP Setup
+## 1.17	Linux Firewalld Rules
+## 1.18	Linux Resource Limits
+## 1.19	Selinux Installation
+## 1.20	Linux User Expiry
+
+# Linux Level 2
+## 2.1	Create a Cron Job
+## 2.2	Linux Banner
+## 2.3	Linux Collaborative Directories
+## 2.4	Linux String Substitute (sed)
+## 2.5	Linux SSH Authentication
+## 2.6	Linux Find Command
+## 2.7	Linux Install a package
+## 2.8	Linux Install Ansible
+## 2.9	Linux Configure Local Yum repos
+## 2.10	Linux Services
+## 2.11	Linux Configure sudo
+## 2.12	DNS Troubleshooting
+## 2.13	Linux Firewalld Setup
+## 2.14	Linux Postfix Mail Server
+## 2.15	Linux Postfix Troubleshooting
+## 2.16	Linux Install and
+## 2.17	Linux Haproxy LBR Troubleshooting
+## 2.18	MariaDB Troubleshooting
+## 2.19	Linux Bash Scripts
+## 2.20	Add Response Headers in Apache
+## 2.21	Apache Troubleshooting
+## 2.22	Linux GPG Encryption
+## 2.23	Linux LogRotate
+## 2.24	Application Security
+
+# Linux Level 3
+## 3.1	Apache Redirects
+## 3.2	Install And Configure SFTP
+## 3.3	Install and Configure Tomcat Server
+## 3.4	Linux Network Services
+## 3.5	IPtables Installation And Configuration
+## 3.6	Linux Nginx as Reverse Proxy
+## 3.7	Configure protected directories in Apache
+## 3.8	Linux Process Troubleshooting
+## 3.9	PAM Authentication For Apache
+## 3.10	Setup SSL for Nginx
+
+# Linux Level 4
+## 4.1	Install and Configure Nginx as an LBR
+## 4.2	LEMP Troubleshooting
+## 4.3	Install and Configure PostgreSQL
+## 4.4	Bash scripts if/else statements
+## 4.5	Configure LAMP server
+## 4.6	Install and Configure DB Server
+## 4.7	Install and Configure Web Application
+## 4.8	Install and Configure PHP-FPM
+## 4.9	Configure Nginx + PHP-FPM Using Unix Sock
