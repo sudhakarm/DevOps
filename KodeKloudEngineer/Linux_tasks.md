@@ -6,10 +6,12 @@ b. Set UID to 1190 and its home directory to /var/www/kareem.
 <details>
 <summary>Sol:</summary>
 Login to the app server 3 and switch to root
+    
 ```sh
 thor@jump_host ~$ ssh banner@stapp03
 ```
 Add user 
+
 ```sh
 [root@stapp03 ~]# useradd -u 1190 kareem
 [root@stapp03 ~]# id kareem
@@ -17,6 +19,7 @@ uid=1190(kareem) gid=1190(kareem) groups=1190(kareem)
 ```
 
 Check if user created or not
+
 ```sh
 [root@stapp03 ~]# cat /etc/passwd | grep kareem
 kareem:x:1190:1190::/var/www/kareem:/bin/bash
