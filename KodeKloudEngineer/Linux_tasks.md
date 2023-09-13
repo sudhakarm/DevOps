@@ -142,45 +142,131 @@ drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 </details>
 
 ## 1.5	Linux User Expiry
+A developer mark has been assigned Nautilus project temporarily as a backup resource. As a temporary resource for this project, we need a temporary user for mark. create a user named mark on the App Server 1. Set expiry date to 2023-03-24 in Stratos Datacenter. Make sure the user is created as per standard and is in lowercase.
 
 <details>
 <summary>Sol:</summary>
+Create the user 'sai' first and check the status
+```sh
+[root@stapp01 ~]# adduser sai
+
+[root@stapp01 ~]# chage -l sai
+Last password change                                    : Jan 23, 2023
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+
+
+```
+
+Set the expiry and check again
+
+```sh
+[root@stapp01 ~]# chage -E 2023-03-24 sai
+
+[root@stapp01 ~]# chage -l sai
+Last password change                                    : Jan 23, 2023
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : Mar 24, 2023
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+``` 
 
 </details>
 
 ## 1.6	Linux User Files
 
+There is a directory `/home/usersdata/` contains files and sub dir. Task is to copy files that are owned my user `ravi` to separate path `/ecommerce/` without changing directory structure.
+
 <details>
 <summary>Sol:</summary>
-
+Search using find for files owned by user 'ravi'
+```sh
+ #This command finds the files owned by user ravi and copy them to ecomerce dir, with parent dir path.
+ find /home/usersdata/ -type f -user ravi -exec cp --parents {} /ecommerce \;
+```
 </details>
 
 ## 1.7	Disable Root Login
 
+Disable root login on the server 01
 <details>
 <summary>Sol:</summary>
+```sh
+[root@stapp01 ssh]# cat sshd_config | grep PermitRoot
+#PermitRootLogin yes
+# the setting of "PermitRootLogin without-password".
+```
+Edit and change the permission to 'no'
+
+```sh
+[root@stapp01 ssh]# vi sshd_config 
+[root@stapp01 ssh]# cat sshd_config | grep PermitRoot
+PermitRootLogin no
+# the setting of "PermitRootLogin without-password".
+```
+
+Restart and check the status of sshd service
+```sh
+[root@stapp01 ssh]# systemctl restart sshd
+
+[root@stapp01 ssh]# systemctl status sshd
+● sshd.service - OpenSSH server daemon
+   Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2023-03-23 15:00:35 UTC; 16min ago
+```
 
 </details>
 
 ## 1.8	Linux Archives
+Make anita.tar.gz compressed archive of /data/anita directory and move the archive to /home directory on Storage Server.
 
 <details>
 <summary>Sol:</summary>
-
+Tar the directory and move it to `/home`
+    
+```sh   
+tar -czvf anita.tar.gz /data/anita/
+ls -l
+mv anita.tar.gz /home/
+```   
+    
 </details>
 
 ## 1.9	Linux File Permissions
+The team has developed a new bash script xfusioncorp.sh. They have already copied the script on all required servers, however they did not make it executable on one the app server i.e App Server 1 in Stratos Datacenter.
+Please give executable permissions to /tmp/xfusioncorp.sh script on App Server 1. Also make sure every user can execute it.
 
 <details>
 <summary>Sol:</summary>
+check the file's current permissions
+```sh
+[root@stapp01 ~]# ls -ltr /tmp/xfusioncorp.sh
+---------- 1 root root 40 Mar 23 03:24 /tmp/xfusioncorp.sh  
+```
 
+Add read and execute permissions to others (all users)
+```sh
+[root@stapp01 ~]# chmod o+rx /tmp/xfusioncorp.sh
+```
 </details>
 
 ## 1.10	Linux Access Control List
-
+Create ACL for user `ryan` should read and user `john` should not have access to the file `/etc/resolv.conf`
 <details>
 <summary>Sol:</summary>
-
+Use setfacl for file and give specific permissions to each user.
+    
+```sh
+    getfacl /etc/resolv.conf 
+    setfacl -m u:john:-,u:ryan:r /etc/resolv.conf 
+    getfacl /etc/resolv.conf
+```
 </details>
 
 ## 1.11	Linux String Substitute
