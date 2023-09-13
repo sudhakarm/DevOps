@@ -484,3 +484,21 @@ drwx------ 1 tony    tony    4096 Jan 25  2020 tony
 <summary>Sol:</summary>
 
 </details>
+
+## 4.7	Install and Configure Web Application
+<details>
+<summary>Sol:</summary>
+
+</details>
+
+## 4.8	Install and Configure PHP-FPM
+<details>
+<summary>Sol:</summary>
+
+</details>
+
+## 4.9	Configure Nginx + PHP-FPM Using Unix Sock
+<details>
+<summary>Sol:</summary>
+
+</details>
