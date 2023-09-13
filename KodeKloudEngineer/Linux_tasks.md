@@ -6,18 +6,18 @@ b. Set UID to 1190 and its home directory to /var/www/kareem.
 
 Sol:
 Login to the app server 3 and switch to root
-```
+```sh
 thor@jump_host ~$ ssh banner@stapp03
 ```
 Add user 
-```
+```sh
 [root@stapp03 ~]# useradd -u 1190 kareem
 [root@stapp03 ~]# id kareem
 uid=1190(kareem) gid=1190(kareem) groups=1190(kareem)
 ```
 
 Check if user created or not
-```
+```sh
 [root@stapp03 ~]# cat /etc/passwd | grep kareem
 kareem:x:1190:1190::/var/www/kareem:/bin/bash
 ```
@@ -29,7 +29,7 @@ a. Create a group named nautilus_developers in all App servers in Stratos Datace
 
 ### Sol:
 Login to app server 1 and sudo
-```
+```sh
 thor@jump_host ~$ ssh tony@stapp01
 The authenticity of host 'stapp01 (172.16.238.10)' can't be established.
 ECDSA key fingerprint is SHA256:JhOqund8gadKYbCYr6cmFmQJRR1efsNB7ecz1qytQog.
@@ -49,7 +49,7 @@ Administrator. It usually boils down to these three things:
 ```
 
 create a group . Also create user, add them to group using -G at the same time
-```
+```sh
 [root@stapp01 ~]# groupadd nautilus_developers
 [root@stapp01 ~]# id rajesh
 id: 'rajesh': no such user
@@ -58,7 +58,7 @@ id: 'rajesh': no such user
 ```
 
 Verify the user's group
-```
+```sh
 [root@stapp01 ~]# id rajesh
 uid=1002(rajesh) gid=1003(rajesh) groups=1003(rajesh),1002(nautilus_developers)
 [root@stapp01 ~]# cat /etc/passwd | grep raj
@@ -98,7 +98,7 @@ Create a user named javed in App Server 1 without a home directory
 Sol:
 At first login on app server given in task & Switch to  root user
 Check user javed is there, if not then create
-```
+```sh
 [root@stapp01 ~]# id javed
 id: mohammed: no such user
 
@@ -107,13 +107,13 @@ id: mohammed: no such user
 ```
 
 create a user javed with below commands ( check user name in your task)     
-```
+```sh
 [root@stapp01 ~]# useradd -M javed
 [root@stapp01 ~]#
 ```
 
 Validate the task by listing the file exist in  Home directory  
-```
+```sh
 [root@stapp01 ~]# id javed
 uid=1002(javed) gid=1002(javed) groups=1002(javed)
 [root@stapp01 ~]#
