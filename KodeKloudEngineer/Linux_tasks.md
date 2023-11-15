@@ -270,10 +270,24 @@ Use setfacl for file and give specific permissions to each user.
 </details>
 
 ## 1.11	Linux String Substitute
-
+ The backup server in the Stratos DC contains several templated XML files used by the Nautilus application. However, these template XML. files must be populated with valid data before they can be used. Replace all occurrences of the string 'Red' to 'Blue' on the XML file '/root/nautilus.xml' located in the backup server.
 <details>
 <summary>Sol:</summary>
+Login to backup server and switch to root. 
+Check number of occurences of word `Red` in file file `/root/nautilus.xml`
 
+```sh
+    [root@stbkp01 ~]# cat /root/nautilus.xml  |grep Red  | wc -l
+    63
+```
+
+Replace the string to `Blue` and check the count
+```sh
+    [root@stbkp01 ~]# sed -i 's/Red/Blue/g' /root/nautilus.xml
+
+    [root@stbkp01 ~]# cat /root/nautilus.xml  |grep Blue  | wc -l
+    63
+```
 </details>
 
 ## 1.12	Linux Remote Copy
